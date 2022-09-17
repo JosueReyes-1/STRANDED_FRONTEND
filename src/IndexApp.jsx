@@ -1,15 +1,14 @@
-import { NavBar } from "./components/NavBar"
-
-
-
+import { Category, NavBar } from "./components"
 
 
 export const IndexApp = () => {
 
-    
+
     return (
         <>
-            <NavBar/>
+            <NavBar />
+            <Category />
+            
         </>
 
     )
