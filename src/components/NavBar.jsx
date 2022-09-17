@@ -5,7 +5,7 @@ import { BrandBar,ProfileBar,SearchBar } from "../components";
 
 export const NavBar = () => {
     return (
-        <Navbar isBordered variant="sticky">
+        <Navbar  variant="floating">
             <BrandBar />
             <Navbar.Content
                 css={{

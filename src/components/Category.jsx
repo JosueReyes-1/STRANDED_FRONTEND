@@ -7,7 +7,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 
-import '../css/owlcarousel.css'
+
 
 export const Category = () => {
     return (

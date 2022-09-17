@@ -1,4 +1,5 @@
-import { Category, NavBar } from "./components"
+import { Category, NavBar,ContainerPlaces } from "./components"
+
 
 
 export const IndexApp = () => {
@@ -8,7 +9,7 @@ export const IndexApp = () => {
         <>
             <NavBar />
             <Category />
-            
+            <ContainerPlaces/>
         </>
 
     )

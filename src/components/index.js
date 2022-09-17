@@ -5,3 +5,5 @@ export * from "./SearchBar";
 export * from "./SearchIcon";
 export * from "./Category";
 export * from "./ButtonCategory";
+export * from "./ContainerPlaces";
+export * from "./CardPlaces";

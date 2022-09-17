@@ -1,0 +1,6 @@
+.container_places{
+    height: 80vh;
+	width: 50%;
+	background: #ffffff;
+	overflow-y: scroll;
+}
