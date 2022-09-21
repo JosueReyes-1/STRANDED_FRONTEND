@@ -1,6 +1,6 @@
 
 import { CardPlaces } from "./CardPlaces";
-import './css/ContainerPlaces.css'
+import '../css/ContainerPlaces.css'
 export const ContainerPlaces = () => {
     return (
         <>
