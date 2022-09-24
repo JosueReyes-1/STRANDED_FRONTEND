@@ -1,6 +1,6 @@
 import { Card, Grid, Text, Link,Image } from "@nextui-org/react";
 
-export const CardPlaces = () => {
+export const CardPlaces = ({name,description,images}) => {
     return (
         <>
             <Card className="shadow-sm" css={{ p: "$6", mw: "90%", margin: "auto", marginTop: "10px", marginBottom: "10px"}}  isHoverable isPressable>
@@ -8,7 +8,7 @@ export const CardPlaces = () => {
                     <Grid>
                         <Image
                             alt="nextui logo"
-                            src="https://tipsparatuviaje.com/wp-content/uploads/2019/07/playa-las-gemelas.jpg"
+                            src={images[0].img}
                             width={300}
                             height={200}
                             css={{borderRadius:"10px"}}  
@@ -20,7 +20,7 @@ export const CardPlaces = () => {
                                 <Grid>
                                     <Grid xs={12}>
                                         <Text h4 css={{ lineHeight: "$xs" }}>
-                                            Next UI
+                                            {name}
                                         </Text>
                                     </Grid>
                                     <Grid xs={12}>
@@ -34,7 +34,7 @@ export const CardPlaces = () => {
                         </Card.Header>
                         <Card.Body css={{ py: "$2",wordBreak:"break-all" }}>
                             <Text>
-                                Make beautiful websites regardless of your design experience.
+                                {description}
                             </Text>
                         </Card.Body>
                         <Card.Footer>

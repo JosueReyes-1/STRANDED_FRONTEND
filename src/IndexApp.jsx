@@ -1,3 +1,5 @@
+import { Loading } from "@nextui-org/react";
+import { set } from "ol/transform";
 import { useEffect, useState } from "react"
 import { Category, NavBar, ContainerPlaces } from "./components"
 import { getCurrentDirection } from "./helpers/getCurrentDirection";
@@ -7,7 +9,10 @@ export const IndexApp = () => {
 	const [lat, setLat] = useState(null);
 	const [lon, setLng] = useState(null);
 	const [status, setStatus] = useState(null);
-	const [direccion, setDireccion] = useState(null)
+	const [country, setCountry] = useState(null);
+	const [city, setCity] = useState(null);
+	const [state, setState] = useState(null);
+
 
 	const getLocation = () => {
 		if (!navigator.geolocation) {
@@ -15,7 +20,7 @@ export const IndexApp = () => {
 		} else {
 			setStatus('Locating...');
 			navigator.geolocation.getCurrentPosition((position) => {
-				setStatus(null);
+				
 				setLat(position.coords.latitude);
 				setLng(position.coords.longitude);
 			}, () => {
@@ -23,35 +28,36 @@ export const IndexApp = () => {
 			});
 		}
 	}
-
 	const getAddress = async () => {
-		const newAddress = await getCurrentDirection(lat, lon);
-		setDireccion(newAddress)
+		const {country,city,state} = await getCurrentDirection(lat, lon);
+		console.log(country,city,state)
+		setCountry(country)
+		setCity(city)
+		setState(state)
+		setStatus(null);
 	}
 
 	useEffect(() => {
 		getLocation()
-		getAddress(lat,lon)
-		
 	}, []);
 
+	useEffect(() => {
+		getAddress(lat,lon)
+	}, [lat,lon]);
+	
 
-	// https://nominatim.openstreetmap.org/reverse?format=json&lat=21.508995587888542&lon=-104.92223718096996
 	if (status) {
 		return (
 			<>
-				<h1>hola</h1>
+				<Loading type="points"/>
 			</>
 		)
 	} else {
 		return (
 			<>
-				<NavBar />
+				<NavBar/>
 				<Category />
-				<ContainerPlaces />
-				<h1>{lat}</h1>
-				<h1>{lon}</h1>
-				<h1>{direccion}</h1>
+				<ContainerPlaces country={country} city={city} state={state}/>
 			</>
 
 		)
